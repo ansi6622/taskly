@@ -58,6 +58,14 @@ button, input[type=submit] {
     outline: none;
     background-color: darken(#3498db, 15%)
   }
+
+  &.delete {
+    background-color: red;
+
+    &:hover {
+      background-color: darken(red, 15%);
+    }
+  }
 }
 
 form {
@@ -78,6 +86,8 @@ form {
     }
   }
 }
+
+
 
 header {
   background: navy;
