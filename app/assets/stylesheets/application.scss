@@ -3,6 +3,10 @@
  *= require_self
  */
 
+ul {
+  list-style: none;
+}
+
 .container {
   width: 960px;
   margin: 0 auto;
@@ -25,7 +29,6 @@
 
   color: red;
 }
-
 
 #flash {
   border: 1px solid black;
@@ -126,7 +129,7 @@ main {
 }
 
 .task-list {
-  padding: 1em;
+  padding: 10px;
 
   & + & {
     border-top: 1px solid darkblue;
@@ -139,9 +142,24 @@ main {
 
   .actions {
     float: right;
-    
-    ul {
-      list-style: none;
+
+    li {
+      margin-left: 20px;
+      display: inline-block;
     }
+  }
+}
+
+.tasks {
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    width: 880px;
+    padding: 15px;
+    margin: 0;
+    background: lightgray;
   }
 }
