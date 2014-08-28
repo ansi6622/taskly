@@ -71,6 +71,12 @@ form {
     display: block;
     width: 50%;
   }
+
+  .field_with_errors {
+    label {
+      color: red;
+    }
+  }
 }
 
 header {

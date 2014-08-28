@@ -10,6 +10,8 @@ class TasksController < ApplicationController
     if @task.save
       flash[:notice] = "Task was created successfully"
       redirect_to root_path
+    else
+      render :new
     end
   end
 

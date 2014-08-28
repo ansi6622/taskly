@@ -1,9 +1,14 @@
 <h1>Add a task</h1>
 
 <%= form_for [:task_list, @task] do |f| %>
+    <% if f.object.errors.any? %>
+        <div class="error">
+            Your task could not be created
+        </div>
+    <% end %>
+
     <%= f.label :description %>
     <%= f.text_field :description %>
-
 
     <div>
         <%= f.label :due_date %>
