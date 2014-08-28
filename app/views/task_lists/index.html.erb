@@ -30,7 +30,10 @@
         <div class="tasks">
             <ul>
                 <% task_list.tasks.each do |task| %>
-                    <li><%= task.description %></li>
+                    <li>
+                        <%= task.description %>
+                        <%= button_to "Delete", task_list_task_path(task_list, task), :method => :delete %>
+                    </li>
                 <% end %>
             </ul>
         </div>

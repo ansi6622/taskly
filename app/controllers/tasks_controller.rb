@@ -15,6 +15,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    Task.find(params[:id]).destroy
+    flash[:notice] = "Task was deleted successfully"
+    redirect_to root_path
+  end
+
   private
 
   def allowed_params
