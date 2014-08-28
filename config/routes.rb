@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   get "/about" => "about#show"
 
-  resources :task_lists
+  resources :task_lists do
+    resources :tasks
+  end
 end
