@@ -52,10 +52,13 @@ feature 'Task lists' do
   end
 
   scenario "user viewing a single task list" do
-    TaskList.create(:name => "Some task list", :tasks => [Task.new(:description => "Task 1"),
-                                                          Task.new(:description=> "Task 2")])
+    TaskList.create!(:name => "Some task list",
+                     :tasks => [Task.new(:description => "Task 1",
+                                         :due_date => Date.today),
+                                Task.new(:description => "Task 2",
+                                         :due_date => Date.today)])
 
-    TaskList.create(:name => "Some other task list")
+    TaskList.create!(:name => "Some other task list")
 
     signin
 
