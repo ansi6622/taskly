@@ -1,0 +1,4 @@
+<%= render @task_list,
+           :tasks => @task_list.completed_tasks,
+           :actions => false,
+           :title => "#{@task_list.name} - Completed" %>
