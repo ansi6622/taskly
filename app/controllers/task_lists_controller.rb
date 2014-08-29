@@ -4,6 +4,10 @@ class TaskListsController < ApplicationController
     @task_lists = TaskList.order(:name)
   end
 
+  def show
+    @task_list = TaskList.find(params[:id])
+  end
+
   def new
     @task_list = TaskList.new
   end

@@ -18,11 +18,12 @@ feature 'Task lists' do
     click_on "Add Task List"
 
     fill_in "Name", :with => "Some new task list"
-    click_on "Create Task List" 
-    
+    click_on "Create Task List"
+
     expect(page).to have_content("Task List was created successfully")
     expect(page).to have_content("Some new task list")
   end
+
 
   scenario "user can view errors on a task list" do
     signin
@@ -50,4 +51,19 @@ feature 'Task lists' do
     expect(page).to have_content("A new name")
   end
 
+  scenario "user viewing a single task list" do
+    TaskList.create(:name => "Some task list", :tasks => [Task.new(:description => "Task 1"),
+                                                          Task.new(:description=> "Task 2")])
+
+    TaskList.create(:name => "Some other task list")
+
+    signin
+
+    click_on "Some task list"
+
+    expect(page).to have_content("Some task list")
+    expect(page).to have_content("Task 1")
+    expect(page).to have_content("Task 2")
+  end
 end
+
