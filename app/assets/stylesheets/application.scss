@@ -183,6 +183,11 @@ main {
     vertical-align: middle;
   }
 
+  p {
+    @extend li;
+    text-align: center;
+  }
+
   .actions {
     form {
       display: inline-block;

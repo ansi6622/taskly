@@ -80,5 +80,13 @@ feature 'Task lists' do
     expect(page).to have_content("Task List was deleted successfully")
     expect(page).to have_no_content("Some task list")
   end
+
+  scenario "User sees nice message if there's no tasks in the task list" do
+    TaskList.create!(:name => "Some task list")
+
+    signin
+
+    expect(page).to have_content("Nothing to see here!")
+  end
 end
 
