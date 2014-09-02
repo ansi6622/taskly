@@ -68,5 +68,17 @@ feature 'Task lists' do
     expect(page).to have_content("Task 1")
     expect(page).to have_content("Task 2")
   end
+
+  scenario "user can delete at task list" do
+    TaskList.create!(:name => "Some task list")
+
+    signin
+
+    expect(page).to have_content("Some task list")
+    click_on "Delete"
+
+    expect(page).to have_content("Task List was deleted successfully")
+    expect(page).to have_no_content("Some task list")
+  end
 end
 

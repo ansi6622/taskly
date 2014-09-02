@@ -11,6 +11,9 @@
                     <%= link_to "Completed", task_list_completed_tasks_path(task_list) %>
                 </li>
                 <li>
+                    <%= link_to "Delete", task_list_path(task_list), :method => :delete, :data => {:confirm => "Are you sure?", :disable_with => "Deleting..."} %>
+                </li>
+                <li>
                     <%= link_to "Edit", edit_task_list_path(task_list) %>
                 </li>
                 <li>
