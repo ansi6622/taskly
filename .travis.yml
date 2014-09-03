@@ -1,0 +1,26 @@
+# You can validate this file at http://lint.travis-ci.org/
+language: ruby
+# set the version of Ruby
+rvm:
+  - 2.1.1
+# make sure things are set up before the build runs
+# See http://docs.travis-ci.com/user/using-postgresql/ for details
+# on using Postgres on Travis.
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+# run the build, making sure you use the gems in your bundle
+# see http://bundler.io/v1.6/man/bundle-exec.1.html for all
+# of the gory details.
+script:
+  - bundle exec rake spec
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: WYeiMmB164uobBNgews4pGJEx/fHzO448Y4kD4yrHpifTNz9cqSKhdpE67SgdoQ1RBii24JPquqZjaSIx9jdsZiWy/MMz4DxvA6eugbn2FWDVDBWHctBeBL3O96pJz2/JHCH2gi4j27tAALXWMMqnZfSTpEndZOPa1uIGHFsyyM=
+#  app: glacial-sands-5713
+#  on:
+#    repo: gSchool/rails_continuous_integration_and_deployment_with_travis
+#  run:
+#    - "bundle exec rake db:migrate"
