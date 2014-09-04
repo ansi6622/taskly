@@ -2,14 +2,21 @@ class Task < ActiveRecord::Base
   include ActiveSupport::Inflector
 
   belongs_to :task_list
+  belongs_to :assigned_to, :class => User
   validates :description, :presence => true
   validates :due_date, :presence => true
 
-  def description_with_due_date
-    "#{description} (#{due_date_description})"
+  def full_description
+    "#{description} (#{due_date_description})#{assignee}"
   end
 
   private
+
+  def assignee
+    if assigned_to.present?
+      " - #{assigned_to.name}"
+    end
+  end
 
   def due_date_description
     if due_date == today

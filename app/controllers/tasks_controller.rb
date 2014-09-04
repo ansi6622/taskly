@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def new
     @task = Task.new
+    @users = User.all
   end
 
   def create
@@ -11,6 +12,7 @@ class TasksController < ApplicationController
       flash[:notice] = "Task was created successfully"
       redirect_to root_path
     else
+      @users = User.all
       render :new
     end
   end
@@ -30,6 +32,6 @@ class TasksController < ApplicationController
   private
 
   def allowed_params
-    params.require(:task).permit(:description, :due_date)
+    params.require(:task).permit(:description, :due_date, :assigned_to_id)
   end
 end

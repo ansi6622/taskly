@@ -14,6 +14,11 @@
         <%= f.label :due_date %>
         <%= f.date_select :due_date %>
     </div>
+    
+    <div>
+        <%= f.label :assigned_to_id, "Assigned to" %>
+        <%= f.collection_select :assigned_to_id, @users, :id, :name %>
+    </div>
 
     <%= f.submit %>
 <% end %>

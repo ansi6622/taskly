@@ -73,13 +73,14 @@ feature "Managing tasks" do
   end
 
   scenario "user can assign another user to the task" do
-    pending
-    User.create!(:name => "Jeff", :password => "a", :password_confirmation => "a", :email => "hello@blah.com")
+    User.create!(:name => "Jeff", :email => "hello@blah.com",
+                 :password => "a",  :password_confirmation => "a")
+
     signin
 
     fill_in_description_and_due_date
 
-    select "Jeff", :from => "User"
+    select "Jeff", :from => "Assigned to"
 
     click_on "Create Task"
 
