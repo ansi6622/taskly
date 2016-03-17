@@ -10,29 +10,6 @@ Revolutionary!
 
 Naturally, we need this done by the end of the week; good luck!
 
-## Setup
-
-* `bundle`
-* `rake db:create db:migrate db:seed`
-* `rails server`
-
-You can run specs with:
-
-* `rspec`
-
-Note: email/password combinations for existing users populated by `rake db:seed` can be found in the db/seeds.rb file.
-
-## References
-
-* [Rails](http://guides.rubyonrails.org/index.html)
-* [Views](http://guides.rubyonrails.org/layouts_and_rendering.html)
-* [Controller](http://guides.rubyonrails.org/action_controller_overview.html)
-* [Model](http://guides.rubyonrails.org/active_record_basics.html)
-* [ActiveRecord Querying](http://guides.rubyonrails.org/active_record_querying.html)
-* [Flash](http://guides.rubyonrails.org/action_controller_overview.html#the-flash)
-* [Date Select](http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-date_select)
-* [Validations in views](http://guides.rubyonrails.org/active_record_validations.html#displaying-validation-errors-in-views)
-
 ## Stories
 **Anonymous user can view about page**
 ```
@@ -200,4 +177,3 @@ As a non-logged in user
 When I visit the new task path for any task list
 Then I should be redirected to the login page
 ```
-
